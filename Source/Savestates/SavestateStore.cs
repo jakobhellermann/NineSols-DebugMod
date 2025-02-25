@@ -86,10 +86,15 @@ internal class SavestateStore {
 
     private static (string, string)? SplitOnce(string str, char sep) {
         var length = str.IndexOf(sep);
-        var str1 = str.Substring(0, length);
-        var str2 = str;
-        var startIndex = length + 1;
-        var str3 = str2.Substring(startIndex, str2.Length - startIndex);
-        return (str1, str3);
+        //if '-' is not in file path, return since length = -1 throws errors
+        if (length == -1) return null;
+        else
+        {
+            var str1 = str.Substring(0, length);
+            var str2 = str;
+            var startIndex = length + 1;
+            var str3 = str2.Substring(startIndex, str2.Length - startIndex);
+            return (str1, str3);
+        }
     }
 }

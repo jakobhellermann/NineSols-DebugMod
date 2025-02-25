@@ -1,102 +1,102 @@
-<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <AssemblyName>DebugModPlus</AssemblyName>
-        <Description>Advanced Debug Mod for Nine Sols</Description>
-        <TargetFramework>netstandard2.1</TargetFramework>
-        <Version>1.6.1</Version>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <LangVersion>latest</LangVersion>
-        <NoWarn>MSB3277;CS0162</NoWarn>
-        <Nullable>enable</Nullable>
-        <PublishRelease>true</PublishRelease>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>DebugModPlus</AssemblyName>
+		<Description>Advanced Debug Mod for Nine Sols</Description>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Version>1.6.1</Version>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>latest</LangVersion>
+		<NoWarn>MSB3277;CS0162</NoWarn>
+		<Nullable>enable</Nullable>
+		<PublishRelease>true</PublishRelease>
 
-        <!-- todo macOS -->
-        <NineSolsPath Condition="'$(OS)' == 'Windows_NT'">C:/Program Files (x86)/Steam/steamapps/common/Nine Sols</NineSolsPath>
-        <NineSolsPath Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.local/share/Steam/steamapps/common/Nine Sols</NineSolsPath>
-        <DllPath>$(NineSolsPath)/NineSols_Data/Managed</DllPath>
+		<!-- todo macOS -->
+		<NineSolsPath Condition="'$(OS)' == 'Windows_NT'">C:/Program Files (x86)/Steam/steamapps/common/Nine Sols</NineSolsPath>
+		<NineSolsPath Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.local/share/Steam/steamapps/common/Nine Sols</NineSolsPath>
+		<DllPath>$(NineSolsPath)/NineSols_Data/Managed</DllPath>
 
-        <ProfileDir Condition="'$(OS)' == 'Windows_NT'">$(AppData)/r2modmanPlus-local/NineSols/profiles/Default</ProfileDir>
-        <ProfileDir Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.config/r2modmanPlus-local/NineSols/profiles/Default</ProfileDir>
-        <!-- After building, copy the dll to this folder. Useful for hot-reloading: https://github.com/BepInEx/BepInEx.Debug/blob/master/README.md#scriptengine -->
-        <CopyDir>$(ProfileDir)/BepInEx/scripts</CopyDir>
-    </PropertyGroup>
+		<ProfileDir Condition="'$(OS)' == 'Windows_NT'">$(AppData)/r2modmanPlus-local/NineSols/profiles/Default</ProfileDir>
+		<ProfileDir Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.config/r2modmanPlus-local/NineSols/profiles/Default</ProfileDir>
+		<!-- After building, copy the dll to this folder. Useful for hot-reloading: https://github.com/BepInEx/BepInEx.Debug/blob/master/README.md#scriptengine -->
+		<CopyDir>$(ProfileDir)/BepInEx/scripts</CopyDir>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <EmbeddedResource Include="../Resources/checkmark.png" />
-    </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="../Resources/checkmark.png" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <Reference Include="Assembly-CSharp">
-            <HintPath>$(DllPath)/Assembly-CSharp.dll</HintPath>
-        </Reference>
-        <Reference Include="rcg.rcgmakercore.Runtime">
-            <HintPath>$(DllPath)/rcg.rcgmakercore.Runtime.dll</HintPath>
-        </Reference>
-        <Reference Include="RCG_General">
-            <HintPath>$(DllPath)/RCG_General.dll</HintPath>
-        </Reference>
-        <Reference Include="InControl">
-            <HintPath>$(DllPath)/InControl.dll</HintPath>
-        </Reference>
-        <Reference Include="Unity.TextMeshPro">
-            <HintPath>$(DllPath)/Unity.TextMeshPro.dll</HintPath>
-        </Reference>
-        <Reference Include="QFSW.QC">
-            <HintPath>$(DllPath)/QFSW.QC.dll</HintPath>
-        </Reference>
-        <Reference Include="AK.Wwise.Unity.MonoBehaviour">
-            <HintPath>$(DllPath)/AK.Wwise.Unity.MonoBehaviour.dll</HintPath>
-        </Reference>
-        <Reference Include="UniTask">
-            <HintPath>$(DllPath)/UniTask.dll</HintPath>
-        </Reference>
-        <Reference Include="PrimeTween.Runtime">
-            <HintPath>$(DllPath)/PrimeTween.Runtime.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.UI">
-            <HintPath>$(DllPath)/UnityEngine.UI.dll</HintPath>
-        </Reference>
-        <Reference Include="Newtonsoft.Json">
-            <HintPath>$(DllPath)/Newtonsoft.Json.dll</HintPath>
-        </Reference>
-        <Reference Include="I2">
-            <HintPath>$(DllPath)/I2.dll</HintPath>
-        </Reference>
-        <Reference Include="guidRef">
-            <HintPath>$(DllPath)/guidRef.dll</HintPath>
-        </Reference>
-        <Reference Include="Mixpanel">
-            <HintPath>$(DllPath)/Mixpanel.dll</HintPath>
-        </Reference>
-    </ItemGroup>
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>$(DllPath)/Assembly-CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="rcg.rcgmakercore.Runtime">
+			<HintPath>$(DllPath)/rcg.rcgmakercore.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="RCG_General">
+			<HintPath>$(DllPath)/RCG_General.dll</HintPath>
+		</Reference>
+		<Reference Include="InControl">
+			<HintPath>$(DllPath)/InControl.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.TextMeshPro">
+			<HintPath>$(DllPath)/Unity.TextMeshPro.dll</HintPath>
+		</Reference>
+		<Reference Include="QFSW.QC">
+			<HintPath>$(DllPath)/QFSW.QC.dll</HintPath>
+		</Reference>
+		<Reference Include="AK.Wwise.Unity.MonoBehaviour">
+			<HintPath>$(DllPath)/AK.Wwise.Unity.MonoBehaviour.dll</HintPath>
+		</Reference>
+		<Reference Include="UniTask">
+			<HintPath>$(DllPath)/UniTask.dll</HintPath>
+		</Reference>
+		<Reference Include="PrimeTween.Runtime">
+			<HintPath>$(DllPath)/PrimeTween.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>$(DllPath)/UnityEngine.UI.dll</HintPath>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(DllPath)/Newtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="I2">
+			<HintPath>$(DllPath)/I2.dll</HintPath>
+		</Reference>
+		<Reference Include="guidRef">
+			<HintPath>$(DllPath)/guidRef.dll</HintPath>
+		</Reference>
+		<Reference Include="Mixpanel">
+			<HintPath>$(DllPath)/Mixpanel.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
-        <PackageReference Include="BepInEx.Core" Version="5.*" />
-        <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
-        <PackageReference Include="UnityEngine.Modules" Version="2022.3.18" IncludeAssets="compile" />
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+		<PackageReference Include="BepInEx.Core" Version="5.*" />
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+		<PackageReference Include="UnityEngine.Modules" Version="2022.3.18" IncludeAssets="compile" />
 
-        <PackageReference Include="NineSolsAPI" Version="1.2.0" />
-        <!--        <ProjectReference Include="../../NineSolsAPI/NineSolsAPI/NineSolsAPI.csproj" />-->
-    </ItemGroup>
+		<PackageReference Include="NineSolsAPI" Version="1.2.0" />
+		<!--        <ProjectReference Include="../../NineSolsAPI/NineSolsAPI/NineSolsAPI.csproj" />-->
+	</ItemGroup>
 
-    <Target Name="CheckReferences" BeforeTargets="BeforeBuild">
-        <ItemGroup>
-            <MissingReferences Include="@(Reference)" Condition="!Exists('%(Reference.HintPath)')" />
-        </ItemGroup>
-        <Error Condition="@(MissingReferences->Count()) > 0" Text="Missing reference(s);
+	<Target Name="CheckReferences" BeforeTargets="BeforeBuild">
+		<ItemGroup>
+			<MissingReferences Include="@(Reference)" Condition="!Exists('%(Reference.HintPath)')" />
+		</ItemGroup>
+		<Error Condition="@(MissingReferences->Count()) > 0" Text="Missing reference(s);
 @(MissingReferences->'%(HintPath)', ',&#x0A;')
 Did you forget to adjust your NineSolsPath '$(DllPath)'?" />
-    </Target>
+	</Target>
 
-    <Target Name="CopyMod" AfterTargets="PostBuildEvent" Condition="'$(CopyDir)' != ''">
-        <Message Importance="high" Text="copying $(TargetPath) to $(CopyDir) ..." />
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(CopyDir)" SkipUnchangedFiles="true" />
-        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(CopyDir)" SkipUnchangedFiles="true" />
-    </Target>
+	<Target Name="CopyMod" AfterTargets="PostBuildEvent" Condition="'$(CopyDir)' != ''">
+		<Message Importance="high" Text="copying $(TargetPath) to $(CopyDir) ..." />
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(CopyDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(CopyDir)" SkipUnchangedFiles="true" />
+	</Target>
 
-    <Target Name="PackageMod" AfterTargets="Publish">
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="../thunderstore/build/dll" SkipUnchangedFiles="true" />
-        <Exec Command="tcli build --config-path ../thunderstore/thunderstore.toml" />
-    </Target>
+	<Target Name="PackageMod" AfterTargets="Publish">
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="../thunderstore/build/dll" SkipUnchangedFiles="true" />
+		<Exec Command="tcli build --config-path ../thunderstore/thunderstore.toml" />
+	</Target>
 </Project>
